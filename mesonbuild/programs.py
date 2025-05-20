@@ -307,7 +307,9 @@ class ExternalProgram(mesonlib.HoldableObject):
         Search in the specified dirs for the specified executable by name
         and if not found search in PATH
         '''
+        print('>>>>>> Searching for', name)
         for search_dir in search_dirs:
+            print('>>>>>> Searching directory', search_dir)
             commands = self._search_dir(name, search_dir)
             if commands:
                 return commands
@@ -329,9 +331,11 @@ class ExternalProgram(mesonlib.HoldableObject):
         return [command]
 
     def found(self) -> bool:
+        print(f'>>>>>> found() name={self.name} command={self.command}')
         return self.command[0] is not None
 
     def get_command(self) -> T.List[str]:
+        print(f'>>>>>> get_command() name={self.name} command={self.command}')
         return self.command[:]
 
     def get_path(self) -> T.Optional[str]:

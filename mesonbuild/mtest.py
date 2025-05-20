@@ -1477,6 +1477,7 @@ class SingleTestRunner:
                 # If the command is not built (ie, its a python script),
                 # then we don't check for the exe-wrapper
                 if not self.test.exe_wrapper.found():
+                    print('>>>>>>>>> aaaaaaaaaaaa')
                     msg = ('The exe_wrapper defined in the cross file {!r} was not '
                            'found. Please check the command and/or add it to PATH.')
                     raise TestException(msg.format(self.test.exe_wrapper.name))
